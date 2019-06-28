@@ -5,13 +5,14 @@ class Man {
     this.y = y;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
-    this.speedX = 0;
+    this.speedX = 0;  
     this.speedY = 0;
     this.image = new Image();
     this.life = 3;
 
-    this.image.src = 'images/mycar_final.png';
+    this.image.src = 'images/car_final.png';
     this.crashed = false;
+
     // life
     this.emptyHeart = new Image();
     this.emptyHeart.src = './images/heart_empty.png';

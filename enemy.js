@@ -9,7 +9,7 @@ class Enemy {
     this.speedX = 15;
     this.speedY = 15;
     this.image = new Image();
-    this.image.src = 'images/heart.png';  
+    this.image.src = 'images/satellites.png';  
   }
 
   draw() {

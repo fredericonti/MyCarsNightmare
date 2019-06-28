@@ -37,7 +37,7 @@ let myScore = 0
 
 //intro
 let logo = new Image();
-logo.src = './images/logo_2.png';
+logo.src = './images/logo_final.png';
 let bginit = new Image();
 bginit.src = 'images/cap2.png';
 
@@ -158,9 +158,10 @@ function gameOver() {
 
     elonCry.onload = () => {
       c.drawImage(elonCry, 0, 0, 900, 600);
-
-      c.fillStyle = 'white';
+      c.fillText(`Score ${myScore}`, 425, 120);
+      c.fillStyle = 'black';
       c.font = '50px Prompt';
+      c.fillStyle = 'white';
       c.fillText('GAME', 80, 280);
       c.fillText('OVER', 700, 280);
     }

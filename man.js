@@ -7,18 +7,17 @@ class Man {
     this.sizeY = sizeY;
     this.speedX = 0;
     this.speedY = 0;
-    this.jumping = false;
-    this.jumpInterval = 0;
     this.image = new Image();
     this.life = 3;
-    this.image.src = 'images/comet-meteor-pngrepo-com.png';
+
+    this.image.src = 'images/mycar_final.png';
     this.crashed = false;
     // life
     this.emptyHeart = new Image();
-    this.emptyHeart.src = 'images/heart_empty.png';
+    this.emptyHeart.src = './images/heart_empty.png';
 
     this.fullHeart = new Image();
-    this.fullHeart.src = 'images/heart.png';
+    this.fullHeart.src = './images/heart.png';
   }
 
   draw() {
@@ -44,38 +43,12 @@ class Man {
     }
   }
 
-  newPos() {
-    if (this.y >= 510 && this.isInXrange() === true) {
-      this.y = 509.6
-    } else {
-      this.x += this.speedX;
-      // uhu
-      this.y += this.speedY;
-
-    }
-  }
-
-  clear() {
-    clearInterval(this.jumpInterval);
-  }
-
   moveUp() {
-    this.speedY = -45;
-    this.jumping = true;
-    this.jumpInterval = setInterval(() => {
-      if (this.bottom() >= canvas.height) {
-        this.stopDude();
-        this.y = canvas.height - this.sizeY;
-        this.jumping = false;
-        this.clear();
-      } else {
-        this.moveDown();
-      }
-    }, 15);
+    this.speedY -= 10;
   }
 
   moveDown() {
-    this.speedY += 3;
+    this.speedY += 10;
   }
 
   moveLeft() {
@@ -89,6 +62,15 @@ class Man {
   stopDude() {
     this.speedX = 0;
     this.speedY = 0;
+  }
+
+  boundaries() {
+    if (this.top() + this.speedY > canvas.height || this.top() + this.speedY < 0) {
+      this.speedY *= -1;
+    }
+    if (this.left() + this.speedX > canvas.width || this.left() + this.speedX < 0) {
+      this.speedX *= -1;
+    }
   }
 
   left() {
@@ -107,6 +89,14 @@ class Man {
     return this.y + this.sizeY;
   }
 
+
+  newPos() {
+    this.x += this.speedX;
+    // uhu
+    this.y += this.speedY;
+  }
+
+
   //CRASH TEST!
   crashWith(banana) {
     return (this.bottom() > banana.top()
@@ -118,33 +108,8 @@ class Man {
   lifeLoss() {
     this.life -= 1
     this.crashed = true;
+    c.fillStyle = 'purple';
+    c.fillRect(0, 0, 900, 600)
   }
 
-  isInXrange() {
-    if (this.x >= 0 && this.right() < 900) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  // returns true if param is in range [0..599]
-  isInYrange() {
-    if (this.y >= 0 && this.left() < 600) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
-  handleOutOfBounds() {
-    if (isInXRange(this.x) == false) {
-      this.speedX = 0;
-    }
-
-    if (isInYRange(this.y) == false) {
-      this.speedY = 0;
-    }
-  }
 }

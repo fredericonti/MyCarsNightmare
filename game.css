@@ -1,11 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Prompt&display=swap');
 body {
-  margin:0;
-  padding:0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: aquamarine;
-  
+  margin: 0;
+  padding: 0;
+  background-color: #010301;
 }
 
 .container {
@@ -13,9 +10,9 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-top: 130px;
 }
 
 canvas {
-
-  background-color: black;
+  font-family: 'Prompt', sans-serif;
 }

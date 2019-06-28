@@ -4,7 +4,7 @@ class Background {
     this.y = y;
     this.width = width;
     this.height = height;
-
+    this.speed = -1;
     this.image = new Image();
     this.image.src = 'images/bg_01.png';
   }
@@ -18,4 +18,8 @@ class Background {
     this.y += this.speedY;
   }
 
+  move() {
+    this.x += this.speed;
+    this.x %= canvas.width;
+  }
 }

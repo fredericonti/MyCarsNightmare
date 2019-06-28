@@ -9,11 +9,10 @@ class Enemy {
     this.speedX = 15;
     this.speedY = 15;
     this.image = new Image();
-    this.image.src = 'images/8-will-smith-face-png-image.png';
+    this.image.src = 'images/satellites.png';  
   }
 
   draw() {
-
     c.drawImage(this.image, this.x, this.y, this.width, this.height)
   }
 
